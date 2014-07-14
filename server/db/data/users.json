@@ -1,0 +1,10 @@
+[
+    {
+        "_id":"1",
+        "username":"carlos.oogs@gmail.com",
+        "role":"default",
+        "password":"$2a$10$sYNGMijzJ3wcv30Gb/6Zf.wpTuRezxT9HRoolTehCh2S9bxPJ3AfO",
+        "createdAt" : "ISODate('2014-06-21T19:32:17.441Z')",
+        "updatedAt" : "ISODate('2014-06-21T19:32:17.441Z')"
+    }
+]

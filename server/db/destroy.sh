@@ -1,0 +1,1 @@
+mongo sais --eval "db.dropDatabase()"

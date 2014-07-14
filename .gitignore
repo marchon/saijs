@@ -1,0 +1,7 @@
+dist/
+node_modules
+platforms/
+www/lib/
+.idea/
+.tmp/
+plugins/ios.json

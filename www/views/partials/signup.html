@@ -1,0 +1,33 @@
+<form class='navbar-form css-form' id='header-login-form' name="signup_form">
+    <h2>Signup</h2>
+    <div class="alert alert-danger"
+         ng-show="signup_form.confirm_password.$error.passwordVerify"><small>Passwords must be equal</small></div>
+
+    <div class="alert alert-danger"
+         ng-show="error"><small>{{errorMessage}}</small></div>
+
+    <input data-ng-model="user.firstName" class='form-control' type="text" name="user" placeholder="First Name"
+            required data-ng-maxlength="{{FIELD_LEN.md.max-1}}" maxlength="{{FIELD_LEN.md.max}}"
+            data-ng-minlength="{{FIELD_LEN.md.min}}"/>
+
+    <input data-ng-model="user.lastName" class='form-control' type="text" name="user" placeholder="Last Name"
+           required data-ng-maxlength="{{FIELD_LEN.md.max-1}}" maxlength="{{FIELD_LEN.md.max}}"
+           data-ng-minlength="{{FIELD_LEN.md.min}}"/>
+
+    <input data-ng-model="user.username" class='form-control' type="email" name="user" placeholder="Email" required
+           required data-ng-maxlength="{{FIELD_LEN.email.max-1}}" maxlength="{{FIELD_LEN.email.max}}"
+           data-ng-minlength="{{FIELD_LEN.email.min}}"/>
+
+    <input data-ng-model="user.password" class='form-control' type="password" name="pass"
+           placeholder="Password {{FIELD_LEN.password.min}}-{{FIELD_LEN.password.max}} chars"
+           required data-ng-maxlength="{{FIELD_LEN.password.max-1}}" maxlength="{{FIELD_LEN.password.max}}"
+           data-ng-minlength="{{FIELD_LEN.password.min}}"/>
+
+    <input data-password-verify="user.password" data-ng-model="user.password_verify" class='form-control'
+           type="password" name="confirm_password"
+           placeholder="Confirm Password"
+           required data-ng-maxlength="{{FIELD_LEN.password.max-1}}" maxlength="{{FIELD_LEN.password.max}}"
+           data-ng-minlength="{{FIELD_LEN.password.min}}"/>
+
+    <a href="" class="btn btn-primary" data-ng-click="createUser()" data-ng-disabled="signup_form.$invalid">Signup</a>
+</form>
