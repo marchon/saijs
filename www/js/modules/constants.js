@@ -1,14 +1,14 @@
 var HOST = (location.hostname) ? location.hostname : "undefined";
 var HOSTS = {
-    "sais.com":{/*Local*/
+    "saijs.com":{/*Local*/
         api_host:"http://localhost:1337/",
         content_host:"http://localhost:1337/image/"
     }
 };
 
 app
-    .constant('APP_NAME', 'SAIS')
-    .constant('PUBLIC_ROUTES', ['/login'])
+    .constant('APP_NAME', 'SAIJS')
+    .constant('PUBLIC_ROUTES', ['/login', '/signup'])
     .constant('ADMIN_ONLY_ROUTES', ['/admin'])
     .constant('DEFAULT_ROLE', 'default')
     .constant('ADMIN_ROLE', 'admin')

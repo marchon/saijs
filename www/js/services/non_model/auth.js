@@ -41,10 +41,9 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
 
     function UserHelper() {
         this.applyUserData = function (user) {
-            log("here", user);
             $rootScope.auth = true;
             $rootScope.user = user;
-            if(!$rootScope.$$phase){
+            if (!$rootScope.$$phase) {
                 $rootScope.$apply();
             }
         };
@@ -111,6 +110,12 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
                 }
             });
         };
+
+        this.loginNew = function(token, user){
+            // Implement this here
+            log("Inside auth service | TOKEN: "+token, " USER: "+ user);
+        }
+
     }
 
     var TH = new TokenHelper();

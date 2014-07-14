@@ -27,7 +27,7 @@ module.exports = {
                     req.session.cookie.token = token;
                     res.send({
                         success: true,
-                        user: user,
+                        user: user[0],
                         token: token
                     });
                 }
