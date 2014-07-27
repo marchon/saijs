@@ -27,7 +27,7 @@ module.exports = {
         var loginCred = {
             username: req.body.username,
             password: req.body.password
-        }
+        };
         User.create(req.body).done(function(err, user) {
             if(err) return res.send(err);
             req.body = loginCred;

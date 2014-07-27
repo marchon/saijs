@@ -1,6 +1,6 @@
 var HOST = (location.hostname) ? location.hostname : "undefined";
 var HOSTS = {
-    "saijs.com":{/*Local*/
+    "saijs.local":{/*Local*/
         api_host:"http://localhost:1337/",
         content_host:"http://localhost:1337/image/"
     }
