@@ -3,12 +3,6 @@
 app.service('Base', function Base($rootScope, $http, $q, PATHS) {
     function BaseService() {
 
-        this.status = {
-            ok: function (status) {
-                return (status == 200);
-            }
-        };
-
         this.all = function () {
             if (!this.ctrl) {
                 throw new Error("If your class extends the base service is must have this.ctrl defined.");
@@ -68,7 +62,7 @@ app.service('Base', function Base($rootScope, $http, $q, PATHS) {
             return this.request('PUT', PATHS.api_host + this.ctrl + id, this.data, $q.defer());
         };
 
-        this.delete = function (id) {
+        this.remove = function (id) {
             if (!id) {
                 throw new Error("Id must be defined.");
             }

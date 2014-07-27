@@ -7,7 +7,7 @@ var app = angular.module('myApp', [
 ]);
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-}).run(function ($rootScope, AuthService, $location, $templateCache, $http, $route, $ionicPlatform) {
+}).run(function ($rootScope, AuthService) {
     $rootScope.auth = false;
 
     AuthService.evaluateAuthenticated().then(function(){
@@ -16,26 +16,5 @@ app.config(function ($httpProvider) {
 
     $rootScope.logout = function(){
         AuthService.logout();
-    }
-
-
-
-    // Ionic
-    $ionicPlatform.ready(function () {
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-            StatusBar.styleDefault();
-        }
-    });
-
-    /*
-     cacheRoutes($templateCache, $http, $route,
-     [
-     'header.html',
-     'home.html',
-     'login.html'
-     ]);
-     */
+    };
 });

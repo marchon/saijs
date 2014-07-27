@@ -23,8 +23,13 @@
     <script src="lib/holderjs/holder.js"></script>
 </head>
 <body ng-app="myApp">
+
+
 <ion-pane>
     <ion-content>
+        <div class="bar bar-header bar-stable">
+            <h1 class="title">SAI</h1>
+        </div>
         <div class="app-container" data-ng-view></div>
     </ion-content>
 </ion-pane>
@@ -40,10 +45,12 @@
 <script src="js/app.js"></script>
 <script src="js/routes.js"></script>
 <script src="js/modules/constants.js"></script>
-<script src="js/modules/inactivityTimeout.js"></script>
-<script src="js/factories/authInterceptor.js"></script>
-<script src="js/directives/passwordVerify.js"></script>
-<script src="js/directives/holderFix.js"></script>
+<script src="js/modules/inactivity_timeout.js"></script>
+<script src="js/modules/ionic.js"></script>
+<script src="js/modules/route_cache.js"></script>
+<script src="js/factories/auth_interceptor.js"></script>
+<script src="js/directives/password_verify.js"></script>
+<script src="js/directives/holder_fix.js"></script>
 <script src="js/controllers/home.js"></script>
 <script src="js/controllers/login.js"></script>
 <script src="js/controllers/signUp.js"></script>

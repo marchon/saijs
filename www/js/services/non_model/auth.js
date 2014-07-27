@@ -24,7 +24,6 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
                 return base.request('POST', PATHS.api_host + config.ctrl + config.validateTokenEndpoint, null, $q.defer());
             }
         };
-
     }
 
     function LocationEvaluator() {
@@ -59,7 +58,7 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
         this.login = function (user, remember) {
             var r = base.request('POST', PATHS.api_host + config.ctrl + config.loginEndpoint, user, $q.defer());
             r.then(function (res) {
-                if (base.status.ok(res.status)) {
+                if (Status.ok(res.status)) {
                     TH.create(res.data.token, remember);
                     UH.applyUserData(res.data);
                 } else {
@@ -80,7 +79,7 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
             var p;
             if (TH.has()) {
                 p = TH.validate().then(function (res) {
-                    if (base.status.ok(res.status)) {
+                    if (Status.ok(res.status)) {
                         if (res.data.success) {
                             UH.applyUserData(res.data.user);
                         } else {
@@ -129,7 +128,7 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
         ctrl: 'auth/',
         loginEndpoint: 'login',
         validateTokenEndpoint: 'validatetoken'
-    }
+    };
 
     var base = new Base();
     return new Auth();

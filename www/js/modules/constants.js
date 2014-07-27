@@ -7,7 +7,6 @@ var HOSTS = {
 };
 
 app
-    .constant('APP_NAME', 'SAIJS')
     .constant('PUBLIC_ROUTES', ['/login', '/signup'])
     .constant('ADMIN_ONLY_ROUTES', ['/admin'])
     .constant('DEFAULT_ROLE', 'default')
