@@ -12,21 +12,24 @@ var paths = {
     sass: ['./scss/**/*.scss']
 };
 
-var testFiles = [
-    'test'
+var clientUnitTestFiles = [
+    'test/client_unit'
 ];
 
 gulp.task('test', function () {
     // Be sure to return the stream
-    return gulp.src(testFiles)
+    var tests = {};
+    tests.client_unit = gulp.src(clientUnitTestFiles)
         .pipe(karma({
-            configFile: 'my.conf.js',
+            configFile: 'test/client_unit/karma.conf.js',
             action: 'run'
         }))
         .on('error', function (err) {
             // Make sure failed tests cause gulp to exit non-zero
             throw err;
         });
+
+    return tests;
 });
 
 gulp.task('default', ['sass']);

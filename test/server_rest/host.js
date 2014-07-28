@@ -1,0 +1,1 @@
+var simpleRestTestHost = "http://localhost/project/";
