@@ -1,3 +1,5 @@
-/**
- * Created by carlospliego on 7/27/14.
- */
+'use strict';
+
+describe('Unit: User Service', function () {
+    
+});

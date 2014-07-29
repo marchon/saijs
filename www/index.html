@@ -5,22 +5,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/admin.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/angular-resource/angular-resource.js"></script>
-    <script src="lib/angular-cookies/angular-cookies.js"></script>
-    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
-    <script src="lib/angular-route/angular-route.js"></script>
-    <script src="lib/jquery-cookie/jquery.cookie.js"></script>
-    <script src="lib/holderjs/holder.js"></script>
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/main.min.css" rel="stylesheet">
 </head>
 <body ng-app="myApp">
 
@@ -34,6 +20,14 @@
     </ion-content>
 </ion-pane>
 
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/angular-resource/angular-resource.js"></script>
+<script src="lib/angular-cookies/angular-cookies.js"></script>
+<script src="lib/angular-sanitize/angular-sanitize.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="lib/jquery-cookie/jquery.cookie.js"></script>
+<script src="lib/holderjs/holder.js"></script>
 <script type="text/javascript">
     function onDeviceReady() {
         angular.bootstrap(document, ['ngView']);
@@ -41,23 +35,22 @@
     document.addEventListener("deviceready", onDeviceReady, true);
 </script>
 <script src="cordova.js"></script>
-<script src="js/modules/utils.js"></script>
+<script src="js/utils.js"></script>
 <script src="js/app.js"></script>
 <script src="js/routes.js"></script>
-<script src="js/modules/constants.js"></script>
-<script src="js/modules/inactivity_timeout.js"></script>
-<script src="js/modules/ionic.js"></script>
-<script src="js/modules/route_cache.js"></script>
+<script src="js/constants.js"></script>
 <script src="js/factories/auth_interceptor.js"></script>
 <script src="js/directives/password_verify.js"></script>
 <script src="js/directives/holder_fix.js"></script>
+<script src="js/controllers/admin/index.js"></script>
 <script src="js/controllers/home.js"></script>
 <script src="js/controllers/login.js"></script>
 <script src="js/controllers/sign_up.js"></script>
-<script src="js/controllers/admin/index.js"></script>
-<script src="js/services/base.js"></script>
-<script src="js/services/user.js"></script>
-<script src="js/services/non_model/auth.js"></script>
+<script src="js/services/models/user.js"></script>
+<script src="js/services/auth.js"></script>
+<script src="js/services/base_model.js"></script>
+<script src="js/services/my_ionic.js"></script>
+<script src="js/services/route_cache.js"></script>
 <script src="js/filters/truncate.js"></script>
 
 </body>

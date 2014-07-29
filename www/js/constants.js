@@ -1,6 +1,11 @@
 var HOST = (location.hostname) ? location.hostname : "undefined";
+// Check for testing port
 var HOSTS = {
     "saijs.local":{/*Local*/
+        api_host:"http://localhost:1337/",
+        content_host:"http://localhost:1337/image/"
+    },
+    "localhost":{/*Local*/
         api_host:"http://localhost:1337/",
         content_host:"http://localhost:1337/image/"
     }

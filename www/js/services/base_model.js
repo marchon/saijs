@@ -76,21 +76,20 @@ app.service('Base', function Base($rootScope, $http, $q, PATHS) {
                 url: url,
                 data: data,
                 header: "{Content-Type: application/json}",
-                cache: false// coupons wont work if you change this
+                cache: false
             }).success(function (data, status, headers) {
                 var results = [];
                 results.data = data;
                 results.headers = headers;
                 results.status = status;
                 q.resolve(results);
-            })
-                .error(function (data, status, headers) {
-                    var results = [];
-                    results.data = data;
-                    results.headers = headers;
-                    results.status = status;
-                    q.resolve(results);
-                });
+            }).error(function (data, status, headers) {
+                var results = [];
+                results.data = data;
+                results.headers = headers;
+                results.status = status;
+                q.resolve(results);
+            });
             return q.promise;
         };
     }

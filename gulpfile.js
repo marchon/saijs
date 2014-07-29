@@ -6,10 +6,9 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
-var karma = require('gulp-karma');
 
 var paths = {
-    sass: ['./scss/**/*.scss']
+    sass: ['./www/scss/**/*.scss']
 };
 
 var clientUnitTestFiles = [
@@ -17,27 +16,24 @@ var clientUnitTestFiles = [
 ];
 
 gulp.task('test', function () {
-    // Be sure to return the stream
-    var tests = {};
-    tests.client_unit = gulp.src(clientUnitTestFiles)
-        .pipe(karma({
-            configFile: 'test/client_unit/karma.conf.js',
-            action: 'run'
-        }))
-        .on('error', function (err) {
-            // Make sure failed tests cause gulp to exit non-zero
-            throw err;
-        });
-
-    return tests;
+    // Client Tests
+    //sh.exec("karma start test/client_unit/karma.conf.js --singleRun=true");
+    sh.exec("jasmine-node test/server_rest/");
 });
+
+
+/*
+gulp.task('test-run', function () {
+    sh.exec("karma start test/client_unit/karma.conf.js --singleRun=false");
+});
+*/
 
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function (done) {
-    gulp.src('./scss/ionic.app.scss')
+    gulp.src('./www/scss/main.scss')
         .pipe(sass())
-        .pipe(gulp.dest('./www/css/'))
+        //.pipe(gulp.dest('./www/css/'))
         .pipe(minifyCss({
             keepSpecialComments: 0
         }))
@@ -46,19 +42,19 @@ gulp.task('sass', function (done) {
         .on('end', done);
 });
 
+gulp.task('api-run', function () {
+    sh.exec("cd server/ && sails lift");
+});
+
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
 });
 
-
 gulp.task('build', function () {
-    // Copy the www directory
     sh.cp('-R', 'www/*', 'dist');
 });
 
 gulp.task('install', function () {
-    bower.commands.install()
-        .on('log', function (data) {
-            gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-        });
+    sh.exec("npm install");
+    sh.exec("cd server/ && npm install");
 });

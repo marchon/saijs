@@ -7,7 +7,7 @@ var app = angular.module('myApp', [
 ]);
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-}).run(function ($rootScope, AuthService) {
+}).run(function ($rootScope, AuthService, MyIonic) {
     $rootScope.auth = false;
 
     AuthService.evaluateAuthenticated().then(function(){
@@ -17,4 +17,6 @@ app.config(function ($httpProvider) {
     $rootScope.logout = function(){
         AuthService.logout();
     };
+
+    MyIonic.start();
 });
