@@ -1,13 +1,36 @@
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #4a87ee !default;
-$calm:                            #43cee6 !default;
-$balanced:                        #66cc33 !default;
-$energized:                       #f0b840 !default;
-$assertive:                       #ef4e3a !default;
-$royal:                           #8a6de9 !default;
-$dark:                            #444 !default;
+$light: #fff !default;
+$stable: #f8f8f8 !default;
+$positive: #4a87ee !default;
+$calm: #43cee6 !default;
+$balanced: #66cc33 !default;
+$energized: #f0b840 !default;
+$assertive: #ef4e3a !default;
+$royal: #8a6de9 !default;
+$dark: #444 !default;
+$mobilemin: 500px;
+$padding-sides: 10px;
 
-.app-container{
-  padding-top:50px;
+.app {
+  a {
+    text-decoration: none;
+  }
+  .app-content-container {
+    padding: $padding-sides;
+    padding-top: 50px;
+  }
+
+  .login-form {
+    text-align: center;
+    @media screen and (max-width: $mobilemin) {
+      a {
+        margin-top: 10px;
+      }
+    }
+  }
+  // Footer
+  @media screen and (min-width: $mobilemin) {
+    .footer {
+      padding: $padding-sides;
+    }
+  }
 }

@@ -5,19 +5,35 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ionic/css/ionic.min.css"/>
     <link href="css/main.min.css" rel="stylesheet">
 </head>
 <body ng-app="myApp">
-
-
-<ion-pane>
-    <ion-content>
-        <div class="bar bar-header bar-stable">
-            <h1 class="title">SAI</h1>
+<ion-pane class="app">
+    <div class="bar bar-header bar-stable app-header navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand title" href="#">Brand</a>
+            </div>
         </div>
-        <div class="app-container" data-ng-view></div>
+    </div>
+    <ion-content>
+        <div class="app-content-container" data-ng-view></div>
     </ion-content>
+    <div class="tabs tabs-icon-top">
+        <a class="tab-item">
+            <i class="icon ion-home"></i>
+            Home
+        </a>
+        <a class="tab-item">
+            <i class="icon ion-star"></i>
+            Signup
+        </a>
+        <a class="tab-item">
+            <i class="icon ion-gear-a"></i>
+            Settings
+        </a>
+    </div>
 </ion-pane>
 
 <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -28,6 +44,7 @@
 <script src="lib/angular-route/angular-route.js"></script>
 <script src="lib/jquery-cookie/jquery.cookie.js"></script>
 <script src="lib/holderjs/holder.js"></script>
+
 <script type="text/javascript">
     function onDeviceReady() {
         angular.bootstrap(document, ['ngView']);
