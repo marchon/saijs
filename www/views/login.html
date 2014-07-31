@@ -1,21 +1,28 @@
 <div class="row login-form">
     <div class="col">
-        <img src="holder.js/100%x300/sky/text:Your Image" holder-fix>
-        <br/>
-        <br/>
-        <div class="alert alert-danger" data-ng-if='loginErr'>Username and/or password is incorrect</div>
-        <div>
-            <label class="item item-input">
-                <input type="email" data-ng-model="user.username" name="user" class="form-control" placeholder="Email">
-            </label>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <img src="holder.js/100%x300/sky/text:Your Image" holder-fix>
+                <br/>
+                <br/>
+                <div class="alert alert-danger" data-ng-if='loginErr'>Username and/or password is incorrect</div>
+                <div>
+                    <label class="item item-input">
+                        <span class="input-label">Email</span>
+                        <input type="email" data-ng-model="user.username" name="user" class="form-control">
+                    </label>
+                </div>
+                <div>
+                    <label class="item item-input">
+                        <span class="input-label">Password</span>
+                        <input type="password" data-ng-model="user.password" name="pass" class="form-control">
+                    </label>
+                </div>
+                <br/>
+                <a class="button button-positive" ng-click='login()'>Login</a>
+                <a class="button button-calm" href="#/signup">Signup</a>
+            </div>
         </div>
-        <div>
-            <label class="item item-input">
-                <input type="password" data-ng-model="user.password" name="pass" class="form-control" placeholder="Password">
-            </label>
-        </div>
-        <br/>
-        <a class="button button-positive" ng-click='login()'>Login</a>
-        <a class="button button-calm" href="#/signup">Signup</a>
+
     </div>
 </div>
