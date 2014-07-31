@@ -50,6 +50,10 @@ gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
 });
 
+gulp.task('build-ios', function () {
+    sh.exec("ionic build ios && cordova run ios");
+});
+
 gulp.task('build', function () {
     sh.cp('-R', 'www/*', 'dist');
 });

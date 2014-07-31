@@ -3,24 +3,42 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>SAI</title>
+    <title></title>
 
     <link rel="stylesheet" href="lib/ionic/css/ionic.min.css"/>
     <link href="css/main.min.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/jquery-cookie/jquery.cookie.js"></script>
+    <script src="lib/holderjs/holder.js"></script>
+
 </head>
-<body ng-app="myApp">
-<ion-pane class="app">
-    <div class="bar bar-header bar-stable app-header navbar navbar-default">
+<!--ng-app="myApp" -->
+<body ng-app="myApp" scroll="false">
+<ion-pane>
+   <!-- <div class="bar bar-header bar-stable app-header navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand title" href="#">Brand</a>
+
+                {{user}}
+                {{$root}}
                 <button data-ng-click="logout()" class="button button-calm" data-ng-if="user">Logout</button>
             </div>
         </div>
-    </div>
+    </div>-->
     <ion-content>
+        {{$root}}
         <div class="app-content-container" data-ng-view></div>
     </ion-content>
+<!--
+
+
     <div class="tabs tabs-icon-top">
         <a class="tab-item">
             <i class="icon ion-home"></i>
@@ -35,23 +53,9 @@
             Settings
         </a>
     </div>
+    -->
 </ion-pane>
 
-<script src="lib/ionic/js/ionic.bundle.js"></script>
-<script src="lib/jquery/dist/jquery.js"></script>
-<script src="lib/angular-resource/angular-resource.js"></script>
-<script src="lib/angular-cookies/angular-cookies.js"></script>
-<script src="lib/angular-sanitize/angular-sanitize.js"></script>
-<script src="lib/angular-route/angular-route.js"></script>
-<script src="lib/jquery-cookie/jquery.cookie.js"></script>
-<script src="lib/holderjs/holder.js"></script>
-
-<script type="text/javascript">
-    function onDeviceReady() {
-        angular.bootstrap(document, ['ngView']);
-    }
-    document.addEventListener("deviceready", onDeviceReady, true);
-</script>
 <script src="cordova.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/app.js"></script>
@@ -66,10 +70,16 @@
 <script src="js/controllers/sign_up.js"></script>
 <script src="js/services/models/user.js"></script>
 <script src="js/services/auth.js"></script>
-<script src="js/services/base_model.js"></script>
 <script src="js/services/my_ionic.js"></script>
+<script src="js/services/base_model.js"></script>
 <script src="js/services/route_cache.js"></script>
 <script src="js/filters/truncate.js"></script>
-
+<script type="text/javascript">
+    function onDeviceReady() {
+        angular.bootstrap(document);
+        angular.bootstrap(document, ['ngView']);
+    }
+    document.addEventListener("deviceready", onDeviceReady, true);
+</script>
 </body>
 </html>

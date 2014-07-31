@@ -1,11 +1,10 @@
 app.config(function ($routeProvider) {
     $routeProvider
-
         .when('/login', {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
-        .when('/', {
+        .when('/f', {
             templateUrl: 'views/home.html',
             controller: 'HomeCtrl'
         })
@@ -20,4 +19,4 @@ app.config(function ($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
-})
+});

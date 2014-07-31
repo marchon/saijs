@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('MyIonic', function MyIonic(Base, $ionicPlatform) {
+app.service('MyIonic', function MyIonic($ionicPlatform) {
 
     function MyIonicService() {
         this.start = function(){
@@ -16,6 +16,5 @@ app.service('MyIonic', function MyIonic(Base, $ionicPlatform) {
         };
     }
 
-    MyIonicService.prototype = new Base();
     return new MyIonicService();
 });
