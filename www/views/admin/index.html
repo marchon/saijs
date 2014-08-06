@@ -1,1 +1,87 @@
-Admin
+<!--Admin Index.html-->
+<div class="bar bar-header" style="height:50px;">
+
+    <button class="button button-stable" data-ng-click="logout()">
+        <i class="ion-log-out"></i> Logout
+    </button>
+    <div class="h1 title" data-ng-click="adminActive.view='home'" data-ng-if="adminActive.view!='home'">
+        <h2 style="color:#0f63aa;margin-top:6px;">{{$root.user.organization.name}}</h2>
+    </div>
+</div>
+
+<div class="row admin-container">
+    <!--Side Menu-->
+    <div>
+        <ul class="list admin-menu">
+            <li class="item" data-ng-click="adminActive.view='home';">
+                <i class="icon ion-home"></i>
+                Home
+            </li>
+            <div class="item item-divider">
+                <i class="icon ion-arrow-graph-up-right"></i> Manage
+            </div>
+            <li class="item" data-ng-click="adminActive.view='products';assignActiveCrudElement('product',0)"
+                data-ng-if="$root.user.role==$root.roles.ibn_admin">
+                Products
+            </li>
+            <li class="item" data-ng-click="adminActive.view='offers';assignActiveCrudElement('offer',0)">
+                Offers
+            </li>
+            <li class="item" data-ng-click="adminActive.view='ads';assignActiveCrudElement('ad',0)">
+                Ads
+            </li>
+            <li class="item" data-ng-click="adminActive.view='campaigns';assignActiveCrudElement('campaign',0)">
+                Campaigns
+            </li>
+            <li class="item" data-ng-click="adminActive.view='programs';assignActiveCrudElement('program',0)"
+                data-ng-if="$root.user.role==$root.roles.corp_admin
+            || $root.user.role==$root.roles.ibn_admin">
+                Programming
+            </li>
+            <span data-ng-if="$root.user.role==$root.roles.corp_admin
+            || $root.user.role==$root.roles.cpg_admin
+            || $root.user.role==$root.roles.ibn_admin">
+                <div class="item item-divider">
+                    <i class="icon ion-stats-bars"></i> Data
+                </div>
+                <li class="item" data-ng-click="adminActive.view='analytics';">
+                    Analytics
+                </li>
+                <li class="item" data-ng-click="adminActive.view='reporting';">
+                    Reporting
+                </li>
+            </span>
+
+            <div class="item item-divider">
+                <i class="icon ion-gear-a"></i> System
+            </div>
+            <li class="item" data-ng-click="adminActive.view='shoppers';assignActiveCrudElement('shopper',0)"
+                data-ng-if="$root.user.role==$root.roles.store_admin
+            || $root.user.role==$root.roles.ibn_admin">
+                Loyalty
+            </li>
+            <li class="item" data-ng-click="adminActive.view='users';assignActiveCrudElement('user',0)">
+                Devices
+            </li>
+        </ul>
+    </div>
+    <!--Content-->
+
+
+    <div>
+        <!-- You need to load the same template different times in order for the view to change -->
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;" data-ng-if="adminActive.view=='campaigns'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;" data-ng-if="adminActive.view=='products'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;margin-top:-5px;" data-ng-if="adminActive.view=='offers'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;margin-top:-5px;" data-ng-if="adminActive.view=='shoppers'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;margin-top:-5px;" data-ng-if="adminActive.view=='programs'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;margin-top:-5px;" data-ng-if="adminActive.view=='users'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;margin-top:-5px;" data-ng-if="adminActive.view=='media_elements'"></div>
+        <div data-ng-include src="'views/admin/analytics.html'" style="padding-left:10px;" data-ng-if="adminActive.view=='analytics'"></div>
+        <div data-ng-include src="'views/admin/reporting.html'" style="padding-left:10px;" data-ng-if="adminActive.view=='reporting'"></div>
+        <div data-ng-include src="'views/admin/crud.html'" style="padding-left:10px;margin-top:-5px;" data-ng-if="adminActive.view=='ads'"></div>
+    </div>
+    <div style="margin:0 auto;">
+        <div data-ng-include src="'views/admin/home.html'" style="padding-left:10px;text-align: center;" data-ng-if="adminActive.view=='home'"></div>
+    </div>
+</div>

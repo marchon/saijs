@@ -6,32 +6,33 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var karma = require('gulp-karma');
 
 var paths = {
-    sass: ['./www/scss/**/*.scss']
+    sass: ['./scss/**/*.scss']
 };
 
-var clientUnitTestFiles = [
-    'test/client_unit'
+var testFiles = [
+    'test'
 ];
 
 gulp.task('test', function () {
-    // Client Tests
-    //sh.exec("karma start test/client_unit/karma.conf.js --singleRun=true");
-    sh.exec("jasmine-node test/server_rest/");
+    // Be sure to return the stream
+    return gulp.src(testFiles)
+        .pipe(karma({
+            configFile: 'my.conf.js',
+            action: 'run'
+        }))
+        .on('error', function (err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+        });
 });
-
-
-/*
-gulp.task('test-run', function () {
-    sh.exec("karma start test/client_unit/karma.conf.js --singleRun=false");
-});
-*/
 
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function (done) {
-    gulp.src('./www/scss/main.scss')
+    gulp.src('./scss/*')
         .pipe(sass())
         //.pipe(gulp.dest('./www/css/'))
         .pipe(minifyCss({
@@ -40,10 +41,8 @@ gulp.task('sass', function (done) {
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest('./www/css/'))
         .on('end', done);
-});
 
-gulp.task('api-run', function () {
-    sh.exec("cd server/ && sails lift");
+
 });
 
 gulp.task('watch', function () {
@@ -55,10 +54,13 @@ gulp.task('build-ios', function () {
 });
 
 gulp.task('build', function () {
+    // Copy the www directory
     sh.cp('-R', 'www/*', 'dist');
 });
 
 gulp.task('install', function () {
-    sh.exec("npm install");
-    sh.exec("cd server/ && npm install");
+    bower.commands.install()
+        .on('log', function (data) {
+            gutil.log('bower', gutil.colors.cyan(data.id), data.message);
+        });
 });

@@ -1,3 +1,5 @@
+'use strict';
+
 var app = angular.module('myApp', [
     'ngCookies',
     'ngResource',
@@ -7,7 +9,7 @@ var app = angular.module('myApp', [
 ]);
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-}).run(function ($rootScope, AuthService, MyIonic) {
+}).run(function ($rootScope, AuthService,  PATHS,  $location, $templateCache, $http, $route, MyIonic) {
     $rootScope.auth = false;
 
     AuthService.evaluateAuthenticated().then(function(){
@@ -18,5 +20,5 @@ app.config(function ($httpProvider) {
         AuthService.logout();
     };
 
-    MyIonic.start();
+    MyIonic.init();
 });

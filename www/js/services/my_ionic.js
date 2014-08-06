@@ -3,9 +3,9 @@
 app.service('MyIonic', function MyIonic($ionicPlatform) {
 
     function MyIonicService() {
-        this.start = function(){
-            // Ionic
+        this.init = function(){
             $ionicPlatform.ready(function () {
+                // Hide the accessory bar by default
                 if (window.cordova && window.cordova.plugins.Keyboard) {
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 }
@@ -13,8 +13,7 @@ app.service('MyIonic', function MyIonic($ionicPlatform) {
                     StatusBar.styleDefault();
                 }
             });
-        };
+        }
     }
-
     return new MyIonicService();
 });

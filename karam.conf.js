@@ -1,11 +1,11 @@
 // Karma configuration
 // Generated on Sat Jul 05 2014 18:09:50 GMT-0600 (MDT)
-var singleRun = false;
+
 module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '../../',
+        basePath: '',
 
 
         // frameworks to use
@@ -25,7 +25,7 @@ module.exports = function (config) {
             {pattern: 'www/lib/jquery-cookie/jquery.cookie.js', watched: false},
             {pattern: 'www/lib/holderjs/holder.js', watched: false},
             'www/js/**/*.js',
-            'test/client_unit/**/*.js'
+            'test/**/*.js'
         ],
 
 
@@ -72,6 +72,6 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: singleRun
+        singleRun: false
     });
 };

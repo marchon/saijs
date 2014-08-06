@@ -1,16 +1,16 @@
 app.config(function ($routeProvider) {
     $routeProvider
+        .when('/', {
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
+        })
         .when('/login', {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
-        .when('/f', {
-            templateUrl: 'views/home.html',
-            controller: 'HomeCtrl'
-        })
         .when('/signup', {
-            templateUrl: 'views/sign_up.html',
-            controller: 'SignUpCtrl'
+            templateUrl: 'views/signup.html',
+            controller: 'SignupCtrl'
         })
         .when('/admin', {
             templateUrl: 'views/admin/index.html',

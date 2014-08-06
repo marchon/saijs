@@ -1,5 +1,8 @@
 app.filter('characters', function () {
         return function (input, chars, breakOnWord) {
+            // Temporarily Disable Truncations
+            return input;
+
             if (isNaN(chars)) return input;
             if (chars <= 0) return '';
             if (input && input.length > chars) {
@@ -23,6 +26,10 @@ app.filter('characters', function () {
     })
     .filter('words', function () {
         return function (input, words) {
+
+            // Temporarily Disable Truncations
+            return input;
+
             if (isNaN(words)) return input;
             if (words <= 0) return '';
             if (input) {

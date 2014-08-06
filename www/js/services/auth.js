@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('AuthService', function AuthService(Base, $rootScope, $location, PUBLIC_ROUTES, PATHS, $q, $window, ADMIN_ROLE, DEFAULT_ROLE, ADMIN_ONLY_ROUTES) {
+app.service('AuthService', function AuthService(Base, $rootScope, $location, PUBLIC_ROUTES, PATHS, $q, $window) {
 
     function TokenHelper() {
         this.remove = function () {
@@ -16,24 +16,28 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
         };
 
         this.has = function () {
-            return $.cookie(config.tokenName) !== null;
+            return $.cookie(config.tokenName) != null;
         };
 
         this.validate = function () {
             if (this.has()) {
-                return base.request('POST', PATHS.api_host + config.ctrl + config.validateTokenEndpoint, null, $q.defer());
+                return base.request('POST', null, PATHS.api_host + config.ctrl + config.validateTokenEndpoint, null, $q.defer());
             }
         };
     }
 
     function LocationEvaluator() {
         this.evaluate = function (url) {
+            log("EVAl");
             if (!$rootScope.auth) {
                 if (!(PUBLIC_ROUTES.indexOf(url) !== -1)) {
                     $location.path(config.loginRoute);
                 }
-            } else {
-                // Evaluate admin
+            }else{
+                // Re-route if already logged in
+                if (url=="/"+config.loginRoute) {
+                    $location.path("/");
+                }
             }
         };
     }
@@ -50,13 +54,11 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
             $rootScope.auth = false;
             delete $rootScope.user;
         };
-
     }
 
     function Auth() {
-
         this.login = function (user, remember) {
-            var r = base.request('POST', PATHS.api_host + config.ctrl + config.loginEndpoint, user, $q.defer());
+            var r = base.request('POST', null, PATHS.api_host + config.ctrl + config.loginEndpoint, user, $q.defer());
             r.then(function (res) {
                 if (Status.ok(res.status)) {
                     TH.create(res.data.token, remember);
@@ -89,8 +91,7 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
                     }
                 });
             } else {
-                p = {then: function (cb) {
-                }}
+                p = {then: function(cb){cb()}}
             }
             return p;
         };
