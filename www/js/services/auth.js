@@ -28,7 +28,6 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
 
     function LocationEvaluator() {
         this.evaluate = function (url) {
-            log("EVAl");
             if (!$rootScope.auth) {
                 if (!(PUBLIC_ROUTES.indexOf(url) !== -1)) {
                     $location.path(config.loginRoute);
