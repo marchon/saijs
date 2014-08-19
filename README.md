@@ -1,32 +1,31 @@
 More documentation will come, but in the mean time.
 
 Installation
+
 ```
-$ git clone https://cpvent@bitbucket.org/intouchretail/store-hero-client.git
+$ git clone https://github.com/carlospliego/saijs.git
 ```
+
 ```
-$ cd store-hero-client
+$ cd saijs
 ```
+
 ```
 $ npm install
 ```
+
 ```
-$ gulp install
+$ bower install
 ```
+
+Mobile Platforms
+
 ```
 $ ionic platform add ios
 ```
-Web Build
-```
-$ gulp build
-```
-IOS Build
-```
-$ ionic build
-```
-IOS Emulate
-```
-$ cordova run ios --target="iPad"
-```
 
-see Cordova for documentation.
+IOS Build & Emulate
+
+```
+$ ionic build-ios
+```
