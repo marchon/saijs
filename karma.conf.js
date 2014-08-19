@@ -25,7 +25,7 @@ module.exports = function (config) {
             {pattern: 'www/lib/jquery-cookie/jquery.cookie.js', watched: false},
             {pattern: 'www/lib/holderjs/holder.js', watched: false},
             'www/js/**/*.js',
-            'test/**/*.js'
+            'test/**/**/*.js'
         ],
 
 

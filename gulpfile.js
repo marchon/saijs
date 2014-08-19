@@ -17,16 +17,7 @@ var testFiles = [
 ];
 
 gulp.task('test', function () {
-    // Be sure to return the stream
-    return gulp.src(testFiles)
-        .pipe(karma({
-            configFile: 'my.conf.js',
-            action: 'run'
-        }))
-        .on('error', function (err) {
-            // Make sure failed tests cause gulp to exit non-zero
-            throw err;
-        });
+    sh.exec("karma start karma.conf.js");
 });
 
 gulp.task('default', ['sass']);
