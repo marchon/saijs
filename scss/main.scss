@@ -1,10 +1,10 @@
 .app {
-  padding-top:40px;
-  .login {
-    text-align: center;
+  padding-top: 40px;
+  #login_button{
+    margin-left:10px;
   }
-  .content{
-    padding:10px;
-    padding-top:35px;
+  .content {
+    padding: 10px;
+    padding-top: 35px;
   }
 }

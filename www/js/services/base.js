@@ -12,7 +12,6 @@ app.service('Base', function Base($rootScope, $http, $q, PATHS, REQUEST_CACHE) {
             "fill-type-object": "_fill must be of type 'object'",
             "method-defined": "'method' " + defined,
             "url-defined": "'url' " + defined,
-            "data-defined": "'data' " + defined,
             "q-defined": "'q' " + defined
         };
 
@@ -82,9 +81,6 @@ app.service('Base', function Base($rootScope, $http, $q, PATHS, REQUEST_CACHE) {
             }
             if (!url) {
                 throw new Error(this.errors["url-defined"]);
-            }
-            if ((method == "POST" || method == "PUT") && !data) {
-                throw new Error(this.errors["data-defined"]);
             }
             if (!q || !q.promise) {
                 throw new Error(this.errors["q-defined"]);

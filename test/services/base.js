@@ -155,11 +155,6 @@ describe('Unit: Base Service', function () {
             Service.request('GET', null, '', null, $q.defer());
         }).toThrowError(Service.errors['url-defined']);
 
-        // Data Error
-        expect(function () {
-            Service.request('POST', null, PATHS.api_host + '/user', null, $q.defer());
-        }).toThrowError(Service.errors['data-defined']);
-
         // Q Error
         expect(function () {
             Service.request('POST', null, PATHS.api_host + '/user', {}, null);
