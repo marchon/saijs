@@ -1,3 +1,6 @@
+
+![alt tag](http://saijs.com/img/banner-bg.jpg)
+
 More documentation will come, but in the mean time.
 
 Installation
