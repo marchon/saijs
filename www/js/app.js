@@ -10,6 +10,7 @@ var app = angular.module('myApp', [
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 }).run(function ($rootScope, AuthService,  PATHS,  $location, $templateCache, $http, $route, MyIonic) {
+    $rootScope.PATHS = PATHS;
     $rootScope.auth = false;
 
     AuthService.evaluateAuthenticated().then(function(){
