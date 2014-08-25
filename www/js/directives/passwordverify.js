@@ -1,4 +1,5 @@
 'use strict';
+
 app.directive("passwordVerify", function () {
     return {
         require: "ngModel",

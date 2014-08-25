@@ -1,50 +1,9 @@
-'use strict';
-
 // Simple log function to keep the example simple
 function log() {
     if (typeof console !== 'undefined') {
         console.log.apply(console, arguments);
     }
 }
-
-function inArray(item, array) {
-    return (array.indexOf(item) !== -1) ? true : false;
-}
-
-
-
-// Format For Grid View
-function getColMatrix(data, colCnt) {
-    var i, d, cnt = 1, row = {cols: []}, rows = [];
-    if (data.length >= colCnt) {
-        for (i in data) {
-            d = data[i];
-            row.cols.push(d);
-            if (cnt % colCnt === 0) {
-                rows.push(row);
-                row = {cols: []};
-            }
-            cnt++;
-        }
-    } else {
-        for (i in data) {
-            d = data[i];
-            row.cols.push(d);
-        }
-        rows.push(row);
-        row = {cols: []};
-    }
-    return rows;
-}
-
-// Status evaluator
-function Status() {
-    this.ok = function (status) {
-        return (status === 200) ? true : false;
-    };
-}
-
-var Status = new Status();
 
 function generateUUID(){
     var d = new Date().getTime();
@@ -55,3 +14,10 @@ function generateUUID(){
     });
     return uuid;
 };
+
+// Status evaluator
+var Status = new function() {
+    this.ok = function (status) {
+        return (status === 200) ? true : false;
+    };
+}

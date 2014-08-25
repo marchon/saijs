@@ -9,7 +9,7 @@ var hosts = {
         api_host:"http://localhost:8081/"
     }
 };
-
+var env = "development";
 app
     .constant('PUBLIC_ROUTES', ['/login'])
     .constant('REQUEST_CACHE', false)
