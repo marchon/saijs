@@ -1,0 +1,17 @@
+<!-- Error Messages -->
+<span class="error-message"
+      ng-show="left && form[name].$dirty && form[name].$invalid">
+               {{label}} is invalid
+            </span>
+
+<label class="item item-input"
+       data-ng-class="{
+                   'form-field-error': form[name].$dirty && form[name].$invalid,
+                   'form-field-valid': (!form[name].$dirty || !form[name].$invalid)
+                       && model.length>1}">
+    <!-- Label Text-->
+    <span class="input-label">{{label}}</span>
+    <!-- Input -->
+    <input type="{{type}}" dynamic-name="name" data-ng-model="model" data-ng-blur="left=true" maxlength="{{max}}"
+           data-ng-minlength="{{min}}">
+</label>

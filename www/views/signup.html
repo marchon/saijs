@@ -2,12 +2,11 @@
     <img src="holder.js/100%x200/sky/text:Your Logo" holder-fix/>
 
     <form class="responsive-sm" role="form" name="signup_form" novalidate>
-        <saijs-field label="Email" field-name="username" form="signup_form" model="username"></saijs-field>
+
+        <sai-field label="Email" name="username" type='email' model="user.username"></sai-field>
+
         <a class="button button-calm" data-ng-disabled="signup_form.$invalid" data-ng-click="signup()">Sign Up</a>
     </form>
-
-    <a href="#/login" class="button button-clear button-positive">
-        Already Have an account?
-    </a>
+    <a href="#/login" class="button button-clear button-positive">Already Have an account?</a>
 </div>
 

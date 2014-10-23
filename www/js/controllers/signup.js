@@ -3,6 +3,6 @@
 app.controller('SignupCtrl', function ($scope) {
 
     $scope.signup = function(){
-        log("Signing up", $scope.username);
+        log("Signing up");
     }
 });
