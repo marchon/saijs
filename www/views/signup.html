@@ -1,9 +1,8 @@
 <div>
     <img src="holder.js/100%x200/sky/text:Your Logo" holder-fix/>
-
     <form class="responsive-sm" role="form" name="signup_form" novalidate>
-
-        <sai-field label="Email" name="username" type='email' model="user.username"></sai-field>
+        <sai-field type='email' label="Email" name="username" model="user.username"></sai-field>
+        <sai-field type='password' label="Password" name="password" model="user.password" req="true"></sai-field>
 
         <a class="button button-calm" data-ng-disabled="signup_form.$invalid" data-ng-click="signup()">Sign Up</a>
     </form>

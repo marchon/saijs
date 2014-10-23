@@ -5,12 +5,13 @@
  * -Implementation Example-
  *
  * <form name="your_form_name">
- *      <sai-field label="Email" name="username" type='email' model="user.username" max="10" min="10"></sai-field>
+ *      <sai-field type='email' label="Email" name="username" model="user.username"></sai-field>
  * </form>
  *
  * -Attributes-
  *      label:  [Field Label]
  *      name:   [Field Name](required)
+ *      req:    [Required Boolean]
  *      type:   [Field Type](required)
  *      model:  [Model Reference] (required)
  *      max:    [Max Field Length]
@@ -26,7 +27,8 @@ app.directive("saiField", function () {
             label: "@label",
             max: "@max",
             min: "@min",
-            type: "@type"
+            type: "@type",
+            req: "=req"
         },
         link: function(scope, elem) {
             // Validation
