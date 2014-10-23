@@ -11,7 +11,7 @@ var hosts = {
 };
 var env = "development";
 app
-    .constant('PUBLIC_ROUTES', ['/login'])
+    .constant('PUBLIC_ROUTES', ['/login', '/signup'])
     .constant('REQUEST_CACHE', false)
     .constant('PATHS', {
         host: host,

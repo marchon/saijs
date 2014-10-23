@@ -41,6 +41,14 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build-ios', function () {
+    sh.exec("ionic build ios");
+});
+
+gulp.task('run-ios', function () {
+    sh.exec("cordova run ios");
+});
+
+gulp.task('buildR-ios', function () {
     sh.exec("ionic build ios && cordova run ios");
 });
 
