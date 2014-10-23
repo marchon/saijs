@@ -1,8 +1,13 @@
-<!-- Error Messages -->
+<!-- Error Messages -->{{eq}}
 <span class="error-message"
       ng-show="left && form[name].$dirty && form[name].$invalid">
                {{label}} is invalid
             </span>
+
+
+       <!-- <span data-ng-if="mustEqual">
+            {{label}}'s must be equal
+        </span>-->
 
 <label class="item item-input"
        data-ng-class="{
@@ -14,4 +19,5 @@
     <!-- Input -->
     <input type="{{type}}" dynamic-name="name" data-ng-model="model" data-ng-blur="left=true" maxlength="{{max}}"
            data-ng-minlength="{{min}}" data-ng-required="req">
+
 </label>

@@ -28,11 +28,36 @@ app.directive("saiField", function () {
             max: "@max",
             min: "@min",
             type: "@type",
-            req: "=req"
+            req: "=req",
+            mustEqual: "@mustEqual"
         },
-        link: function(scope, elem) {
+        link: function (scope, elem) {
             // Validation
             scope.form = scope.$parent[elem[0].parentNode.name];
+        },
+        controller: function($scope){
+
+            if($scope.mustEqual){
+                var w = $scope.$watch('model', function(){
+                    if($scope.form && $scope.model){
+                        var mustEqualObj = $scope.form[$scope.mustEqual];
+                        if($scope.model!==mustEqualObj.$modelValue){
+                            // Throw Error
+                            $scope.form[$scope.name].$dirty = true;
+                            $scope.form[$scope.name].$invalid = true;
+                        }else{
+                            // Show Success
+                            $scope.form[$scope.name].$dirty = false;
+                            $scope.form[$scope.name].$invalid = false;
+                        }
+                    }
+                });
+
+                // Destroy the active watcher
+                $scope.$on('$destroy', function () {
+                    w();
+                });
+            }
         }
     };
 });
