@@ -2,7 +2,7 @@
     <img src="holder.js/100%x200/sky/text:Your Logo" holder-fix/>
 
     <form class="responsive-sm" role="form" name="signup_form" novalidate>
-        <sai-field type='email' label="Email" name="username" model="user.username"></sai-field>
+        <sai-field type='email' label="Email" name="username" model="user.username" req="true"></sai-field>
         <sai-field type='password' label="Password" name="password" model="user.password" req="true"></sai-field>
         <sai-field type='password' label="Confirm Password" name="confirm_password" model="user.confirm_password"
                    req="true" must-equal="password"></sai-field>

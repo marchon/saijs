@@ -28,6 +28,9 @@
  *
  *  Do not daisy chain with the must-equal directive.
  *
+ *  Supported types:
+ *  text, password, email
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * */
 app.directive("saiField", function () {
@@ -57,6 +60,8 @@ app.directive("saiField", function () {
 
             function _matchError(name1, name2, val1, val2) {
                 var bool = (val1 !== val2);
+                $scope.matchError = bool;
+
                 $scope.form[name1].$dirty = bool;
                 $scope.form[name1].$invalid = bool;
                 $scope.form[name2].$dirty = bool;
