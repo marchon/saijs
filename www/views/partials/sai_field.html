@@ -1,13 +1,10 @@
-<!-- Error Messages -->{{eq}}
+<!-- Error Messages -->
 <span class="error-message"
       ng-show="left && form[name].$dirty && form[name].$invalid">
                {{label}} is invalid
+                <!-- Display the correct Error here -->
             </span>
 
-
-       <!-- <span data-ng-if="mustEqual">
-            {{label}}'s must be equal
-        </span>-->
 
 <label class="item item-input"
        data-ng-class="{
