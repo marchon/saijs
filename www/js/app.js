@@ -3,7 +3,7 @@
 var app = angular.module('myApp', ['saijs']);
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-}).run(function ($rootScope, AuthService,  PATHS,  $location, $templateCache, $http, $route, MyIonic) {
+}).run(function ($rootScope, AuthService,  PATHS,  $location, $templateCache, $http, $route) {
     $rootScope.PATHS = PATHS;
     $rootScope.auth = false;
 
@@ -14,6 +14,4 @@ app.config(function ($httpProvider) {
     $rootScope.logout = function(){
         AuthService.logout();
     };
-
-    MyIonic.init();
 });
