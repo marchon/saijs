@@ -1,1 +1,1 @@
-mongo sais --eval "db.dropDatabase()"
+mongo saijs --eval "db.dropDatabase()"

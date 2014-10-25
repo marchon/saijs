@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('SignupCtrl', function ($scope, User) {
+app.controller('SignupCtrl', function ($scope, User, AuthService) {
 
     $scope.signup = function () {
         // Remove confirm_password from object.
@@ -9,9 +9,17 @@ app.controller('SignupCtrl', function ($scope, User) {
 
         // Save
         User.fill(user);
-        User.create().then(function () {
-            log("user was just created");
-            // Log user in.
+        User.create().then(function (res) {
+            if (Status.ok(res.status)) {
+                if (res.data.success) {
+                    // Log in user
+                    AuthService.login(user, true).then(function (res2) {
+                        if (Status.ok(res.status) && res.data.success) {
+                            $location.path("/");
+                        }
+                    });
+                }
+            }
         });
     }
 });

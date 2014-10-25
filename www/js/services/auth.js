@@ -32,9 +32,9 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
                 if (!(PUBLIC_ROUTES.indexOf(url) !== -1)) {
                     $location.path(config.loginRoute);
                 }
-            }else{
+            } else {
                 // Re-route if already logged in
-                if (url=="/"+config.loginRoute) {
+                if (config.pathsToHideIfAuthenticated.indexOf("/" + url)) {
                     $location.path("/");
                 }
             }
@@ -57,7 +57,7 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
 
     function Auth() {
         this.login = function (user, remember) {
-            var r = base.request('POST', null, PATHS.api_host + config.ctrl + config.loginEndpoint, user, $q.defer());
+            var r = base.request('POST', null, PATHS.api_host + config.ctrl + config.loginRoute, user, $q.defer());
             r.then(function (res) {
                 if (Status.ok(res.status)) {
                     TH.create(res.data.token, remember);
@@ -90,7 +90,11 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
                     }
                 });
             } else {
-                p = {then: function(cb){cb()}}
+                p = {
+                    then: function (cb) {
+                        cb()
+                    }
+                }
             }
             return p;
         };
@@ -110,9 +114,9 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
             });
         };
 
-        this.loginNew = function(token, user){
+        this.loginNew = function (token, user) {
             // Implement this here
-            log("Inside auth service | TOKEN: "+token, " USER: "+ user);
+            log("Inside auth service | TOKEN: " + token, " USER: " + user);
         }
 
     }
@@ -123,6 +127,8 @@ app.service('AuthService', function AuthService(Base, $rootScope, $location, PUB
 
     var config = {
         loginRoute: 'login',
+        signupRoute: 'signup',
+        pathsToHideIfAuthenticated: [this.loginRoute, this.signupRoute],
         home: 'home',
         tokenName: 'token',
         ctrl: 'auth/',
