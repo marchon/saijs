@@ -66,6 +66,7 @@ app.directive("saiField", function () {
                 $scope.form[name1].$invalid = bool;
                 $scope.form[name2].$dirty = bool;
                 $scope.form[name2].$invalid = bool;
+                $scope.form.$invalid = bool;
             }
 
             if ($scope.mustEqual) {
