@@ -26,7 +26,7 @@ module.exports = function (config) {
             {pattern: 'www/lib/holderjs/holder.js', watched: false},
             {pattern: 'www/system/js/**/**.js', watched: true},
             'www/js/**/*.js',
-            'test/**/**/*.js',
+            'www/test/**/**/*.js',
             'www/views/*.html'
         ],
 

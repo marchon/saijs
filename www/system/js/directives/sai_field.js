@@ -36,7 +36,7 @@
 angular.module('saijs').directive("saiField", function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/partials/sai_field.html',
+        templateUrl: './system/views/sai_field.html',
         scope: {
             name: "@name",
             model: "=model",
