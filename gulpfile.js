@@ -10,7 +10,7 @@ var karma = require('gulp-karma');
 
 var paths = {
     sass: ['./scss/**/*.scss']
-};
+};// Not sure if being used
 
 var testFiles = [
     'test'
@@ -22,17 +22,29 @@ gulp.task('test', function () {
 
 gulp.task('default', ['sass']);
 
-gulp.task('sass', function (done) {
-    gulp.src('./scss/*')
+gulp.task('sass-system', function (done) {
+    /* System SCSS */
+    gulp.src('./www/system/scss/ionic.app.scss')
         .pipe(sass())
-        //.pipe(gulp.dest('./www/css/'))
+        .pipe(minifyCss({
+            keepSpecialComments: 0
+        }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest('./www/system/css/'))
+        .on('end', done);
+});
+
+gulp.task('sass', function (done) {
+
+    /* Application SCSS */
+    gulp.src('./www/scss/*')
+        .pipe(sass())
         .pipe(minifyCss({
             keepSpecialComments: 0
         }))
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest('./www/css/'))
         .on('end', done);
-
 
 });
 
@@ -58,6 +70,7 @@ gulp.task('build', function () {
 });
 
 gulp.task('install', function () {
+    // do this too : sass-system
     bower.commands.install()
         .on('log', function (data) {
             gutil.log('bower', gutil.colors.cyan(data.id), data.message);

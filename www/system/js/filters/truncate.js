@@ -1,4 +1,4 @@
-app.filter('chars', function () {
+angular.module('saijs').filter('chars', function () {
         return function (input, chars, breakOnWord) {
             if (isNaN(chars)) return input;
             if (chars <= 0) return '';

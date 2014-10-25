@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('holderFix', function () {
+angular.module('saijs').directive('holderFix', function () {
     return {
         link: function (scope, element, attrs) {
             if(env!='test'){

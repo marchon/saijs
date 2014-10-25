@@ -24,6 +24,7 @@ module.exports = function (config) {
             {pattern: 'www/lib/angular-route/angular-route.js', watched: false},
             {pattern: 'www/lib/jquery-cookie/jquery.cookie.js', watched: false},
             {pattern: 'www/lib/holderjs/holder.js', watched: false},
+            {pattern: 'www/system/js/**/**.js', watched: false},
             'www/js/**/*.js',
             'test/**/**/*.js',
             'www/views/*.html'

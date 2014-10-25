@@ -1,12 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'ngRoute',
-    'ionic'
-]);
+var app = angular.module('myApp', ['saijs']);
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 }).run(function ($rootScope, AuthService,  PATHS,  $location, $templateCache, $http, $route, MyIonic) {

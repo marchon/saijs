@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('MyIonic', function MyIonic($ionicPlatform) {
+angular.module('saijs').service('MyIonic', function MyIonic($ionicPlatform) {
 
     function MyIonicService() {
         this.init = function(){

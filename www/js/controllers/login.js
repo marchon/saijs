@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('LoginCtrl', function ($scope, AuthService, $location) {
+app.controller('LoginCtrl', function ($scope, AuthService, $location, Status) {
 
     $scope.remember = true;
     $scope.loginErr = false;

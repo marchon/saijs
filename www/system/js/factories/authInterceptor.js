@@ -1,4 +1,4 @@
-app.factory('authInterceptor', function ($rootScope, $q, $window) {
+angular.module('saijs').factory('authInterceptor', function ($rootScope, $q, $window) {
     return {
         request: function (config) {
             config.headers = config.headers || {};

@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('Base', function Base($rootScope, $http, $q, PATHS, REQUEST_CACHE) {
+angular.module('saijs').service('Base', function Base($rootScope, $http, $q, PATHS, REQUEST_CACHE) {
     function BaseService() {
 
         var defined = "must be defined";

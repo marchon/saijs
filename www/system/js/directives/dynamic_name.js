@@ -1,4 +1,4 @@
-app.directive('dynamicName', function($compile, $parse) {
+angular.module('saijs').directive('dynamicName', function($compile, $parse) {
     return {
         restrict: 'A',
         terminal: true,

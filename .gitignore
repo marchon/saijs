@@ -2,6 +2,8 @@ dist/
 node_modules
 platforms/
 www/lib/
+www/css/
+www/system/css/
 .idea/
 .tmp/
 plugins/ios.json

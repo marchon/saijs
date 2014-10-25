@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('AuthService', function AuthService(Base, $rootScope, $location, PUBLIC_ROUTES, PATHS, $q, $window) {
+angular.module('saijs').service('AuthService', function AuthService(Base, $rootScope, $location, PUBLIC_ROUTES, PATHS, $q, $window, Status) {
 
     function TokenHelper() {
         this.remove = function () {

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('SignupCtrl', function ($scope, User, AuthService) {
+app.controller('SignupCtrl', function ($scope, User, AuthService, Status) {
 
     $scope.signup = function () {
         // Remove confirm_password from object.

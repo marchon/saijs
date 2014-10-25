@@ -33,7 +33,7 @@
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * */
-app.directive("saiField", function () {
+angular.module('saijs').directive("saiField", function () {
     return {
         restrict: 'E',
         templateUrl: 'views/partials/sai_field.html',
@@ -93,10 +93,8 @@ app.directive("saiField", function () {
 
                 // Destroy the active watcher
                 $scope.$on('$destroy', function () {
-                    //log("before", $scope.$$watchers.length);
                     w();
                     w2();
-                    //log("after", $scope.$$watchers.length);
                 });
             }
         }
