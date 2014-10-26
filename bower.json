@@ -23,6 +23,6 @@
   },
   "resolutions": {
     "angular-sanitize": "1.2.15",
-    "angular": "1.2.19"
+    "angular": "1.2.15"
   }
 }
