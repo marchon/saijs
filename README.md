@@ -14,7 +14,7 @@ $ cd saijs
 ```
 
 ```
-$ npm install
+$ npm install --dev
 ```
 
 ```
