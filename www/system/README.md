@@ -1,0 +1,1 @@
+This is the readme for the future structure of the app.

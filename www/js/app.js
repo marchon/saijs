@@ -3,7 +3,7 @@
 var app = angular.module('myApp', ['saijs']);
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-}).run(function ($rootScope, AuthService,  PATHS,  $location, $templateCache, $http, $route) {
+}).run(function ($rootScope, AuthService,  PATHS) {
     $rootScope.PATHS = PATHS;
     $rootScope.auth = false;
 
