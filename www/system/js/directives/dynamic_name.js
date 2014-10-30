@@ -1,3 +1,8 @@
+/*
+* This directive is used for input name attributes.
+* Example Usage:
+* <input type='text'  dynamic-name='someData'>
+* */
 angular.module('saijs').directive('dynamicName', function($compile, $parse) {
     return {
         restrict: 'A',
