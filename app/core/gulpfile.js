@@ -26,14 +26,10 @@ gulp.task('build', function () {
     sh.exec("gulp scripts");
     //sh.exec("gulp scss");
     sh.exec("gulp views");
-    //sh.exec("gulp clean");
+    sh.exec("gulp clean");
 });
 
 gulp.task('path', function () {
-
-    /*
-     *
-     * */
     gulp.src(['js/path.js'])
         .pipe(replace(/foo(.{3})/g, '$1foo'))
         .pipe(gulp.dest('temp/'));
