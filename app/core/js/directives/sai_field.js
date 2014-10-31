@@ -33,10 +33,10 @@
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * */
-angular.module('saijs').directive("saiField", function () {
+angular.module('saijs').directive("saiField", function (APP_PATH) {
     return {
         restrict: 'E',
-        templateUrl: 'core/dist/views/sai_field.html',
+        templateUrl: APP_PATH+'views/sai_field.html',
         scope: {
             name: "@name",
             model: "=model",

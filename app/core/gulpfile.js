@@ -8,6 +8,7 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var uglify = require('gulp-uglify');
 var fs = require('fs');
+var replace = require('gulp-replace');
 
 gulp.task('install', function () {
     fs.exists('lib/', function (exists) {
@@ -21,9 +22,21 @@ gulp.task('install', function () {
 });
 
 gulp.task('build', function () {
+    sh.exec("gulp path");
     sh.exec("gulp scripts");
-    sh.exec("gulp scss");
+    //sh.exec("gulp scss");
     sh.exec("gulp views");
+    //sh.exec("gulp clean");
+});
+
+gulp.task('path', function () {
+
+    /*
+     *
+     * */
+    gulp.src(['js/path.js'])
+        .pipe(replace(/foo(.{3})/g, '$1foo'))
+        .pipe(gulp.dest('temp/'));
 });
 
 gulp.task('scripts', function () {
@@ -37,6 +50,7 @@ gulp.task('scripts', function () {
         'lib/jquery-cookie/jquery.cookie.js',
         'lib/holderjs/holder.js',
         'js/app.js',
+        'temp/path.js',
         'js/services/status.js',
         'js/factories/authInterceptor.js',
         'js/directives/holderfix.js',
@@ -48,7 +62,7 @@ gulp.task('scripts', function () {
         'js/services/base.js'
     ])
         .pipe(concat('sai.js'))
-        // .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
@@ -65,5 +79,9 @@ gulp.task('scss', function () {
 
 gulp.task('views', function () {
     sh.exec("cp -r views/ dist/views");
+});
+
+gulp.task('clean', function () {
+    sh.exec("rm -r temp/");
 });
 

@@ -34,8 +34,6 @@ gulp.task('sass-system', function (done) {
 });
 
 gulp.task('scss', function (done) {
-
-    /* Application SCSS */
     gulp.src('scss/*')
         .pipe(sass())
         .pipe(minifyCss({
@@ -44,7 +42,6 @@ gulp.task('scss', function (done) {
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest('css/'))
         .on('end', done);
-
 });
 
 // Re do
