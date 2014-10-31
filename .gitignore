@@ -4,3 +4,4 @@ www/
 .idea/
 .tmp/
 plugins/ios.json
+dist/

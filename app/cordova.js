@@ -1,1 +1,0 @@
-/*This file is pointless its just to stop a 404 on the client*/

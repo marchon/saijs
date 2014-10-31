@@ -32,3 +32,4 @@ IOS Build & Emulate
 ```
 $ ionic build-ios
 ```
+// Small note www is a sym link (ln -s dist www)

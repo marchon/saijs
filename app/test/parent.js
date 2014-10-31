@@ -1,2 +1,0 @@
-// Set Environment
-env = "test";
