@@ -1,6 +1,5 @@
 node_modules/
 platforms/
-www/
 .idea/
 .tmp/
 plugins/ios.json

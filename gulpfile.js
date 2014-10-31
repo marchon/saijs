@@ -7,50 +7,9 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var karma = require('gulp-karma');
+var replace = require('gulp-replace');
 
-var paths = {
-    sass: ['./scss/**/*.scss']
-};// Not sure if being used
-
-var testFiles = [
-    'test'
-];
-
-gulp.task('test', function () {
-    sh.exec("karma start karma.conf.js");
-});
-
-gulp.task('default', ['sass']);
-
-gulp.task('sass-system', function (done) {
-    gulp.src('core/scss/ionic.app.scss')
-        .pipe(sass())
-        .pipe(minifyCss({
-            keepSpecialComments: 0
-        }))
-        .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest('core/css/'))
-        .on('end', done);
-});
-
-gulp.task('scss', function (done) {
-    gulp.src('scss/*')
-        .pipe(sass())
-        .pipe(minifyCss({
-            keepSpecialComments: 0
-        }))
-        .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest('css/'))
-        .on('end', done);
-});
-
-// Re do
-gulp.task('watch', function () {
-    gulp.watch(paths.sass, ['sass']);
-});
-
-// Possible refactor
-gulp.task('build-ios', function () {
+gulp.task('build ios', function () {
     sh.exec("ionic build ios");
 });
 
@@ -63,32 +22,51 @@ gulp.task('buildR-ios', function () {
 });
 
 gulp.task('build', function () {
-    // Copy the www directory
-    sh.cp('-R', 'app/*', 'www');
+    sh.exec("rm -r dist/");
+    sh.exec("mkdir dist && mkdir dist/core && mkdir dist/core/dist");
+    sh.cp('-R', 'app/core/dist', 'dist/core/');
+    sh.exec("gulp scripts");
+    sh.exec("gulp scss");
+    sh.cp('-R', 'app/img/*', 'dist/img');
+    sh.cp('-R', 'app/views/*', 'dist/views');
+    sh.exec("gulp index");
+    sh.cp('app/cordova.js', 'dist/cordova.js');
 });
 
-gulp.task('install', function (done) {
 
-
-
-    /*
-    *
-    * If not already built, build:
-    * // ALSO DO THIS: chmod -R 755 saijs
-    *
-    * 1) Build the server
-    *   a) install node dependencies (npm install)
-    *   b) run the database (sh db/build.sh)
-    *
-    * 2) Build the app (should contain its own gulp file)
-    *   a) compile scss
-    *
-    * 3) Build the core (should contain its own gulp file)
-    *   a) bower install
-    *   b) compile scss
-    *   c) compile all javascript
-    *   d) move everything to a build directory
-    *
-    *
-    * */
+gulp.task('scripts', function () {
+    gulp.src([
+        'app/js/utils.js',
+        'app/js/app.js',
+        'app/js/constants.js',
+        'app/js/routes.js',
+        'app/js/controllers/home.js',
+        'app/js/controllers/login.js',
+        'app/js/controllers/signup.js',
+        'app/js/services/user.js'
+    ])
+        .pipe(concat('scripts.js'))
+        //.pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
 });
+
+gulp.task('scss', function () {
+    gulp.src('app/scss/main.scss')
+        .pipe(sass())
+        .pipe(minifyCss({
+            keepSpecialComments: 0
+        }))
+        .pipe(rename({extname: '.min.css'}))
+        .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('index', function () {
+    sh.cp('app/index.html', 'dist/index.html');
+    gulp.src(['dist/index.html'])
+        .pipe(replace(/<!--saijs:scripts:dev-->((\n)(.)*)+<!--!saijs:scripts:dev-->/, ''))
+        .pipe(replace('saijs:scripts:build', ''))
+        .pipe(replace('<!--', ''))
+        .pipe(replace('-->', ''))
+        .pipe(gulp.dest('dist/'));
+});
+
