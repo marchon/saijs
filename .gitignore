@@ -1,9 +1,6 @@
-dist/
-node_modules
+node_modules/
 platforms/
-www/lib/
-www/css/
-www/system/css/
+www/
 .idea/
 .tmp/
 plugins/ios.json
