@@ -3,7 +3,8 @@
 
 Sails | Angular | Ionic
 
-Installation
+Installation ( more detail coming soon )
+
 
 ```
 $ git clone https://github.com/carlospliego/saijs.git
@@ -18,19 +19,24 @@ $ npm install
 ```
 
 ```
-$ bower install
+$ cd server
 ```
 
-Mobile Platforms
-
 ```
-$ ionic platform add ios
+$ npm install
 ```
 
-IOS Build & Emulate
-
+```
+$ sails lift
 ```
 
-$ ionic build-ios
+-- To build the core
+
 ```
-// Small note www is a sym link (ln -s dist www)
+$ cd app/core
+```
+
+```
+$ gulp build
+```
+
