@@ -4,3 +4,4 @@ platforms/
 .tmp/
 plugins/ios.json
 dist/
+.DS_Store
