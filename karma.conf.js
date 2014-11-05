@@ -5,7 +5,7 @@ module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: 'www/system)',
+        basePath: '',
 
 
         // frameworks to use
@@ -15,19 +15,12 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            {pattern: 'www/lib/ionic/js/ionic.bundle.js', watched: false},
-            {pattern: 'www/lib/jquery/dist/jquery.js', watched: false},
-            {pattern: 'www/lib/angular-mocks/angular-mocks.js', watched: false},
-            {pattern: 'www/lib/angular-resource/angular-resource.js', watched: false},
-            {pattern: 'www/lib/angular-cookies/angular-cookies.js', watched: false},
-            {pattern: 'www/lib/angular-sanitize/angular-sanitize.js', watched: false},
-            {pattern: 'www/lib/angular-route/angular-route.js', watched: false},
-            {pattern: 'www/lib/jquery-cookie/jquery.cookie.js', watched: false},
-            {pattern: 'www/lib/holderjs/holder.js', watched: false},
-            {pattern: 'www/system/js/**/**.js', watched: true},
-            'www/js/**/*.js',
-            'www/test/**/**/*.js',
-            'www/views/*.html'
+            {pattern: 'app/lib/saijs-core/dist/js/sai.js', watched: false},
+            {pattern: 'app/lib/angular-mocks/angular-mocks.js', watched: false},
+            //{pattern: 'app/js/app.js', watched: true},
+            {pattern: 'app/js/**/*.js', watched: true},
+            {pattern: 'app/test/**/*.js', watched: true},
+            {pattern: 'app/views/**/*.html', watched: true}
         ],
 
 

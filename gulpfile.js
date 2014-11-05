@@ -9,16 +9,8 @@ var sh = require('shelljs');
 var karma = require('gulp-karma');
 var replace = require('gulp-replace');
 
-gulp.task('build ios', function () {
+gulp.task('ios', function () {
     sh.exec("ionic build ios");
-});
-
-gulp.task('run-ios', function () {
-    sh.exec("cordova run ios");
-});
-
-gulp.task('buildR-ios', function () {
-    sh.exec("ionic build ios && cordova run ios");
 });
 
 gulp.task('build', function () {
@@ -32,8 +24,12 @@ gulp.task('build', function () {
     sh.cp('-R', 'app/views/*', 'dist/views');
     sh.exec("gulp index");
     sh.cp('app/cordova.js', 'dist/cordova.js');
+    sh.exec("gulp ios");
 });
 
+gulp.task('run', function () {
+    sh.exec("ionic run ios");
+});
 
 gulp.task('scripts', function () {
     gulp.src([
@@ -69,6 +65,10 @@ gulp.task('index', function () {
         .pipe(replace('<!--', ''))
         .pipe(replace('-->', ''))
         .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('test', function () {
+    sh.exec("karma start karma.conf.js");
 });
 
 gulp.task('db-reset', function () {

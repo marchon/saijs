@@ -11,8 +11,8 @@ describe('Unit: Login Controller', function () {
         scope = $rootScope.$new();
 
         // Templates
-        $templateCache.put('views/home.html', $.ajax("/base/www/views/home.html", {async: false}).responseText);
-        $templateCache.put('views/login.html', $.ajax("/base/www/views/login.html", {async: false}).responseText);
+        $templateCache.put('views/home.html', $.ajax("app/views/home.html", {async: false}).responseText);
+        $templateCache.put('views/login.html', $.ajax("app/views/login.html", {async: false}).responseText);
         view = $compile(angular.element($templateCache.get('views/login.html')))(scope);
 
         // Controller
