@@ -23,8 +23,9 @@ gulp.task('buildR-ios', function () {
 
 gulp.task('build', function () {
     sh.exec("rm -r dist/");
-    sh.exec("mkdir dist && mkdir dist/core && mkdir dist/core/dist");
-    sh.cp('-R', 'app/lib/saijs-core', 'dist/lib/');
+    sh.exec("mkdir dist");
+    //sh.exec("mkdir dist && mkdir dist/lib && mkdir dist/core/dist");
+    sh.cp('-R', 'app/lib/', 'dist/lib/');
     sh.exec("gulp scripts");
     sh.exec("gulp scss");
     sh.cp('-R', 'app/img/*', 'dist/img');
