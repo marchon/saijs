@@ -1,0 +1,21 @@
+{
+  "name": "saijs",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/carlospliego/saijs",
+  "authors": [
+    "Carlos Pliego <carlos.oogs@gmail.com>"
+  ],
+  "license": "GPL2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "saijs-core": "*"
+  }
+}
