@@ -2,29 +2,29 @@
 #SAIJS ( SailsJs | AngularJs | Ionic Framework)
 *version 0.0.1*
 
-* ###Dependencies
+* Dependencies
     * nodejs
     * mongodb
     * xcode
-  * ### Installation
+  * Installation
     *  `git clone https://github.com/carlospliego/saijs.git`
     *  `cd saijs && sh install.sh`
-  * ### Manual Installation
+  * Manual Installation
     *   `$ git clone https://github.com/carlospliego/saijs.git`
     *   `chmod -R 755 saijs`
     *   `cd` to saijs and type `npm install`
     *   `cd` to saijs/server/ and type  `npm install`
     *   `cd` to saijs/app/ and type  `bower install`
     *   `cd` to saijs/ and type  `gulp build` and `ionic platform ios`
-  * ### Development  
+  * Development  
     *  Start the server: `cd` to saijs/server/ and type `sails lift`
     *  Point your browser to: HOST/saijs/app/
-  * ### Builds
+  * Builds
     * `gulp build`
     * Point your browser to the build: HOST/saijs/www/
-  * ### Emulate
+  * Emulate
     * `gulp run`
-  * ### Deployment as a web app
+  * Deployment as a web app
     * Just deploy the dist/ folder
-  * ### Testing
+  * Testing
     * `gulp test`    
