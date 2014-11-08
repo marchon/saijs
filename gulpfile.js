@@ -75,3 +75,18 @@ gulp.task('db-reset', function () {
     sh.exec("echo 'brains'");
     // run db
 });
+
+gulp.task('scss', function () {
+    gulp.src('app/scss/**.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('app/css/'));
+});
+
+
+gulp.task('watch', function() {
+    gulp.watch('app/scss/**.scss', function() {
+        gulp.run('scss');
+    });
+});
+
+gulp.task('default', ['watch']);
